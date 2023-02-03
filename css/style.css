@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    
+}
+.img-wrapper{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    background-color: aqua;
+    position: relative;
+
+}
+.phone{
+    height: 100px;
+    position: absolute;
+    top: 51px;
+    left: 51px;
+    transition: 1s;
+    animation: circle .5s ease-in-out .1s infinite alternate none;
+}
+@keyframes  circle {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(150deg);
+    }
+}
+.img-wrapper::after{
+    content: 'CALL ME';
+    font-size: 35px;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    color: #fff;
+    font-weight: 600;
+    display: none;
+    transition: 1s;
+}
+.img-wrapper::before{
+    content: '';
+    width: 220px;
+    height: 220px;
+    border: 3px solid rgb(120, 200, 240);
+    border-radius: 50%;
+    display: none;
+    position: absolute;
+    top: -11px;
+    left: -11px;
+    animation: trick .4s ease .3s infinite reverse;
+    
+
+}
+.img-wrapper:hover::after{
+    display: inline-block;
+    transition: 1s;
+}
+.img-wrapper:hover .phone{
+    display: none;
+    
+}
+.img-wrapper:hover::before{
+    display: flex;
+}
+@keyframes trick {
+    0%{
+        transform: scale(1);
+    }
+    20%{
+        transform: scale(.8);
+    }
+    40%{
+        transform: scale(.6);
+    }
+    60%{
+        transform: scale(.4);
+    }
+    80%{
+        transform: scale(.2);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
